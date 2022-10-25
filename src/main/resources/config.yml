@@ -1,0 +1,21 @@
+# Config for OFProtectedArea
+# Command info:
+# There is 3 commands: add, remove, info and tp
+# /protectarea add <AreaName> <X> <Z> <Range> adds new area. The are will block certain mobs
+# /protectarea remove <AreaName> removes the area.
+# /protectarea info <AreaName> gives information about area.
+# /protectarea tp <AreaName> teleport sender to area's center.
+
+messages:
+  areaNameIsNotAvailable: "The area name is already available!"
+  notEnoughPermission: "Only OP players can be use that command!"
+  areaIsNotAvailable: "The area is not available!"
+  areaRemoved: "The area is removed!"
+  areaAdded: "New area added!"
+
+
+# Please use "" and don't forget put ,
+unwantedMobs: [
+  "Pig",
+  "Bee"
+]

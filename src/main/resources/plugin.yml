@@ -1,0 +1,8 @@
+name: OFProtectedArea
+version: '${project.version}'
+main: me.orbitium.Main
+api-version: 1.19
+authors: [Orbit]
+
+commands:
+  protectarea:
