@@ -71,7 +71,7 @@ public class Manager {
                 file.createNewFile();
             Scanner scanner = new Scanner(file);
 
-            if (scanner.hasNextLine()) {
+            while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] sLine = line.split(" ");
                 String worldName = sLine[0];
@@ -81,6 +81,7 @@ public class Manager {
                 int range = Integer.parseInt(sLine[4]);
 
                 new Protector().createNewProtector(worldName, name, x, z, range);
+                System.out.println(name);
             }
         } catch (Exception ex) {
             ex.printStackTrace();

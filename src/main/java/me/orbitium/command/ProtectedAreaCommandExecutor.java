@@ -1,6 +1,7 @@
 package me.orbitium.command;
 
 import me.orbitium.Main;
+import me.orbitium.listener.BlockListener;
 import me.orbitium.protect.Manager;
 import me.orbitium.protect.Protector;
 import org.bukkit.Bukkit;
@@ -103,6 +104,21 @@ public class ProtectedAreaCommandExecutor implements CommandExecutor {
                 inventory.setItem(16, rangeInfo);
 
                 ((Player) sender).openInventory(inventory);
+            } else if (args[0].equals("add")) {
+                if (!Manager.isNameAvailable(args[1])) {
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString("messages.areaNameIsNotAvailable")));
+                    return true;
+                }
+
+                if (BlockListener.newPosX && BlockListener.newPosZ) {
+                    int range = (int) BlockListener.pos1.distance(BlockListener.pos2) / 2;
+                    double x = (BlockListener.pos1.getX() + BlockListener.pos2.getX()) / 2;
+                    double z = (BlockListener.pos1.getZ() + BlockListener.pos2.getZ()) / 2;
+                    new Protector().createNewProtector(((Player) sender).getWorld().getName(), args[1], x, z, range);
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString("messages.areaAdded")));
+                } else {
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString("messages.areaPosIncorrect")));
+                }
             }
         }
         return false;

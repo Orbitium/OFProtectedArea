@@ -12,6 +12,9 @@ messages:
   areaIsNotAvailable: "The area is not available!"
   areaRemoved: "The area is removed!"
   areaAdded: "New area added!"
+  areaPosIncorrect: "Pos1 and Pos2 is not set yet! Please use wooden axe like world edit!"
+  pos1set: "Pos1 is set, when you right click to another block Pos2 will be set!"
+  pos2set: "Pos2 set, now you can use /protectedarea add <areaname>"
 
 
 # Please use "" and don't forget put ,

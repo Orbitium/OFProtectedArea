@@ -11,8 +11,8 @@ public class Protector {
     public ArmorStand center;
     public int range;
     public String name;
-    public int x;
-    public int z;
+    public double x;
+    public double z;
 
     public void createNewProtector(String worldName, String name, double x, double z, int range) {
         Location location = new Location(Bukkit.getWorld(worldName), x, 0, z);
@@ -23,6 +23,8 @@ public class Protector {
         Manager.protectors.add(this);
         this.range = range;
         this.name = name;
+        this.x = x;
+        this.z = z;
     }
 
     public void tick() {

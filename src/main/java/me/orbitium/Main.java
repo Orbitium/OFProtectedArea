@@ -2,6 +2,7 @@ package me.orbitium;
 
 import me.orbitium.command.ProtectedAreaCommandComplater;
 import me.orbitium.command.ProtectedAreaCommandExecutor;
+import me.orbitium.listener.BlockListener;
 import me.orbitium.listener.InventoryListener;
 import me.orbitium.protect.Manager;
 import org.bukkit.Bukkit;
@@ -37,6 +38,7 @@ public final class Main extends JavaPlugin {
         emptyItem.setItemMeta(emptyItemMeta);
 
         getServer().getPluginManager().registerEvents(new InventoryListener(), this);
+        getServer().getPluginManager().registerEvents(new BlockListener(), this);
 
     }
 

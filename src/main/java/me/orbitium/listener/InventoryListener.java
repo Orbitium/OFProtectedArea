@@ -9,7 +9,7 @@ public class InventoryListener implements Listener {
 
     @EventHandler
     public void checkInventory(InventoryClickEvent event) {
-        if (event.getView().getTitle().contains(ChatColor.GOLD + "Information about area named: "))
+        if (event.getView().getTitle().contains(ChatColor.DARK_GRAY + "Area '"))
             event.setCancelled(true);
     }
 
