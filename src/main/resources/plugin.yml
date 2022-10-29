@@ -3,6 +3,7 @@ version: '${project.version}'
 main: me.orbitium.Main
 api-version: 1.16
 authors: [Orbit]
+depends: [WorldEdit]
 
 commands:
   protectarea:

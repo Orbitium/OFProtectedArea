@@ -7,15 +7,12 @@
 # /protectarea tp <AreaName> teleport sender to area's center.
 
 messages:
-  areaNameIsNotAvailable: "The area name is already available!"
-  notEnoughPermission: "Only OP players can be use that command!"
-  areaIsNotAvailable: "The area is not available!"
-  areaRemoved: "The area is removed!"
-  areaAdded: "New area added!"
-  areaPosIncorrect: "Pos1 and Pos2 is not set yet! Please use wooden axe like world edit!"
-  pos1set: "Pos1 is set, when you right click to another block Pos2 will be set!"
-  pos2set: "Pos2 set, now you can use /protectedarea add <areaname>"
-
+  areaNameIsNotAvailable: "&b[OFProtectedArea] &6>>> &4The area name is already in usage!"
+  notEnoughPermission: "&b[OFProtectedArea] &6>>> &4Only OP players can be use that command!"
+  areaIsNotAvailable: "&b[OFProtectedArea] &6>>> &4The area is not available!"
+  areaRemoved: "&b[OFProtectedArea] &6>>> &2The area is removed!"
+  areaAdded: "&b[OFProtectedArea] &6>>> &2New area added!"
+  areaPosIncorrect: "&b[OFProtectedArea] &6>>> &4Pos1 and Pos2 is not set yet! Please use wooden axe (worldedit)."
 
 # Please use "" and don't forget put ,
 unwantedMobs: [

@@ -1,7 +1,8 @@
 package me.orbitium.command;
 
+import com.sk89q.worldedit.IncompleteRegionException;
+import com.sk89q.worldedit.regions.Region;
 import me.orbitium.Main;
-import me.orbitium.listener.BlockListener;
 import me.orbitium.protect.Manager;
 import me.orbitium.protect.Protector;
 import org.bukkit.Bukkit;
@@ -109,17 +110,23 @@ public class ProtectedAreaCommandExecutor implements CommandExecutor {
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString("messages.areaNameIsNotAvailable")));
                     return true;
                 }
+                try {
 
-                if (BlockListener.newPosX && BlockListener.newPosZ) {
-                    int range = (int) BlockListener.pos1.distance(BlockListener.pos2) / 2;
-                    double x = (BlockListener.pos1.getX() + BlockListener.pos2.getX()) / 2;
-                    double z = (BlockListener.pos1.getZ() + BlockListener.pos2.getZ()) / 2;
+                    Region region = Main.getWorldEditPlugin().getSession(((Player) sender)).getSelection();
+                    if (region == null) {
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString("areaPosIncorrect")));
+                    }
+                    int range = (int) region.getBoundingBox().getPos1().distance(region.getBoundingBox().getPos2()) / 2;
+                    double x = region.getCenter().getX();
+                    double z = region.getCenter().getZ();
                     new Protector().createNewProtector(((Player) sender).getWorld().getName(), args[1], x, z, range);
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString("messages.areaAdded")));
-                } else {
+
+                } catch (IncompleteRegionException e) {
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString("messages.areaPosIncorrect")));
                 }
             }
+            return false;
         }
         return false;
     }

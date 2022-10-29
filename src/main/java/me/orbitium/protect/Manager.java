@@ -81,7 +81,6 @@ public class Manager {
                 int range = Integer.parseInt(sLine[4]);
 
                 new Protector().createNewProtector(worldName, name, x, z, range);
-                System.out.println(name);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
